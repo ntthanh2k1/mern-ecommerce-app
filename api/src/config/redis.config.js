@@ -1,4 +1,9 @@
 import Redis from "ioredis";
+import dotenv from "dotenv";
 
-const client = new Redis("rediss://default:********@natural-mutt-21058.upstash.io:6379");
-await client.set('foo', 'bar');
+dotenv.config();
+
+const redis = new Redis(process.env.UPSTASH_REDIS_URL);
+// await redis.set('foo', 'bar');
+
+export default redis;
